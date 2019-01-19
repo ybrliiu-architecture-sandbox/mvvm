@@ -1,16 +1,28 @@
 <html>
   <head>
-    <script src="./node_modules/jquery/dist/jquery.js"></script>
-    <script src="./src/main.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./src/image-selector.js"></script>
   </head>
   <body>
-    <div class="main">
+    <div class="main" id="app">
       <h1>選択された画像</h1>
       <div class="selected-images">
+        <img
+          v-for="image in imageSelector.selectedImages"
+          :src="image.url" 
+          @click="imageSelector.unselect(image)"
+        >
       </div>
       <h1>最近投稿された画像</h1>
       <div class="recently-posted-images">
+        <img
+          v-for="image in imageSelector.recentlyPostedImages"
+          :src="image.url" 
+          @click="imageSelector.select(image)"
+        />
       </div>
     </div>
+    <script src="./src/main.js"></script>
   </body>
 </html>
