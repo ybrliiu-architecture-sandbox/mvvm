@@ -1,8 +1,45 @@
+class Notifier {
+
+  constructor() {
+    this.handlers = [];
+  }
+
+  observe(handler) {
+    this.handlers.push(handler);
+  }
+
+  fire(f) {
+    this.handlers.forEach((handler) => handler());
+  }
+
+}
+
+
 const ImageSelector = class ImageSelector {
 
   constructor() {
+    this.selectedImagesChanged       = new Notifier();
+    this.recentlyPostedImagesChanged = new Notifier();
     this.selectedImages       = [];
     this.recentlyPostedImages = [];
+  }
+
+  set selectedImages(images) {
+    this._selectedImages = images;
+    this.selectedImagesChanged.fire();
+  }
+
+  get selectedImages() {
+    return this._selectedImages;
+  }
+
+  set recentlyPostedImages(images) {
+    this._recentlyPostedImages = images;
+    this.recentlyPostedImagesChanged.fire();
+  }
+
+  get recentlyPostedImages() {
+    return this._recentlyPostedImages;
   }
 
   loadRecentlyPostedImages() {

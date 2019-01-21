@@ -9,17 +9,17 @@
       <h1>選択された画像</h1>
       <div class="selected-images">
         <img
-          v-for="image in imageSelector.selectedImages"
+          v-for="image in selectedImages"
           :src="image.url" 
-          @click="imageSelector.unselect(image)"
+          @click="unselect(image)"
         >
       </div>
       <h1>最近投稿された画像</h1>
       <div class="recently-posted-images">
         <img
-          v-for="image in imageSelector.recentlyPostedImages"
+          v-for="image in recentlyPostedImages"
           :src="image.url" 
-          @click="imageSelector.select(image)"
+          @click="select(image)"
         />
       </div>
     </div>
