@@ -1,8 +1,5 @@
 new Vue({
   el: '#app',
-  beforeCreate() {
-    this.model = new ImageSelector();
-  },
   mounted() {
     this.model.selectedImagesChanged.observe(() => {
       this.selectedImages = this.model.selectedImages;
@@ -13,9 +10,12 @@ new Vue({
     this.model.loadRecentlyPostedImages();
   },
   data() {
+    const selectedImages       = [];
+    const recentlyPostedImages = [];
+    this.model = new ImageSelector(selectedImages, recentlyPostedImages);
     return {
-      selectedImages: this.model.selectedImages,
-      recentlyPostedImages: this.model.recentlyPostedImages,
+      selectedImages: selectedImages,
+      recentlyPostedImages: recentlyPostedImages,
     };
   },
   methods: {

@@ -17,11 +17,11 @@ class Notifier {
 
 const ImageSelector = class ImageSelector {
 
-  constructor() {
+  constructor(selectedImages, recentlyPostedImages) {
     this.selectedImagesChanged       = new Notifier();
     this.recentlyPostedImagesChanged = new Notifier();
-    this.selectedImages       = [];
-    this.recentlyPostedImages = [];
+    this.selectedImages       = selectedImages;
+    this.recentlyPostedImages = recentlyPostedImages;
   }
 
   set selectedImages(images) {
