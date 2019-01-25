@@ -8,7 +8,7 @@ export default class Notifier {
     this.handlers.push(handler);
   }
 
-  fire(f) {
+  fire() {
     this.handlers.forEach((handler) => handler());
   }
 
