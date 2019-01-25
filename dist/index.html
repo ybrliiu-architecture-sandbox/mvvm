@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>mvvm</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>選択された画像</h1>
+      <div class="selected-images">
+        <img
+          v-for="image in selectedImages"
+          :src="image.url" 
+          @click="unselect(image)"
+        >
+      </div>
+      <h1>最近投稿された画像</h1>
+      <div class="recently-posted-images">
+        <img
+          v-for="image in recentlyPostedImages"
+          :src="image.url" 
+          @click="select(image)"
+        />
+      </div>
+    </div>
+  <script type="text/javascript" src="bundle.js"></script></body>
+</html>

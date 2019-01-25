@@ -30,7 +30,7 @@ export default class ImageSelector {
 
   loadRecentlyPostedImages() {
     $.ajax({
-      url: 'stub/recently_posted_images.json',
+      url: 'recently_posted_images.json',
       contentType: 'application/json',
       dataType: 'json',
     }).then(json => {
