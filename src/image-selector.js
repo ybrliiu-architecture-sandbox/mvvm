@@ -1,21 +1,7 @@
-class Notifier {
+import $ from 'jquery';
+import {Notifier} from './notifier.js';
 
-  constructor() {
-    this.handlers = [];
-  }
-
-  observe(handler) {
-    this.handlers.push(handler);
-  }
-
-  fire(f) {
-    this.handlers.forEach((handler) => handler());
-  }
-
-}
-
-
-const ImageSelector = class ImageSelector {
+export class ImageSelector {
 
   constructor(selectedImages, recentlyPostedImages) {
     this.selectedImagesChanged       = new Notifier();
@@ -44,7 +30,8 @@ const ImageSelector = class ImageSelector {
 
   loadRecentlyPostedImages() {
     $.ajax({
-      url: './stub/recently_posted_images.json',
+      url: 'recently_posted_images.json',
+      contentType: 'application/json',
       dataType: 'json',
     }).then(json => {
       this.recentlyPostedImages = json.images;
