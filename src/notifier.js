@@ -1,4 +1,4 @@
-export default class Notifier {
+export class Notifier {
 
   constructor() {
     this.handlers = [];

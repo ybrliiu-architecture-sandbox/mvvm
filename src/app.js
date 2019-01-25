@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import ImageSelector from './image-selector.js';
+import {ImageSelector} from './image-selector.js';
 
 new Vue({
   el: '#app',

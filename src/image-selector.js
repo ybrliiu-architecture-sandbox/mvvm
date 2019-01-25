@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import Notifier from './notifier.js';
+import {Notifier} from './notifier.js';
 
-export default class ImageSelector {
+export class ImageSelector {
 
   constructor(selectedImages, recentlyPostedImages) {
     this.selectedImagesChanged       = new Notifier();
